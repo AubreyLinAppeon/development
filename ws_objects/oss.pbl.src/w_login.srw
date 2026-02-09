@@ -2,6 +2,8 @@
 forward
 global type w_login from window
 end type
+type cb_1 from commandbutton within w_login
+end type
 type cb_cancel from commandbutton within w_login
 end type
 type cb_ok from commandbutton within w_login
@@ -28,6 +30,7 @@ boolean resizable = true
 long backcolor = 67108864
 string icon = "DataWindowIcon1!"
 boolean center = true
+cb_1 cb_1
 cb_cancel cb_cancel
 cb_ok cb_ok
 sle_pwd sle_pwd
@@ -47,6 +50,7 @@ string passwordb = "Appeon"
 end variables
 
 on w_login.create
+this.cb_1=create cb_1
 this.cb_cancel=create cb_cancel
 this.cb_ok=create cb_ok
 this.sle_pwd=create sle_pwd
@@ -54,7 +58,8 @@ this.sle_user=create sle_user
 this.st_pwd=create st_pwd
 this.st_user=create st_user
 this.st_title=create st_title
-this.Control[]={this.cb_cancel,&
+this.Control[]={this.cb_1,&
+this.cb_cancel,&
 this.cb_ok,&
 this.sle_pwd,&
 this.sle_user,&
@@ -64,6 +69,7 @@ this.st_title}
 end on
 
 on w_login.destroy
+destroy(this.cb_1)
 destroy(this.cb_cancel)
 destroy(this.cb_ok)
 destroy(this.sle_pwd)
@@ -73,10 +79,25 @@ destroy(this.st_user)
 destroy(this.st_title)
 end on
 
-type cb_cancel from commandbutton within w_login
-integer x = 1100
+type cb_1 from commandbutton within w_login
+integer x = 663
 integer y = 512
-integer width = 350
+integer width = 457
+integer height = 132
+integer taborder = 50
+integer textsize = -12
+integer weight = 400
+fontcharset fontcharset = ansi!
+fontpitch fontpitch = variable!
+fontfamily fontfamily = swiss!
+string facename = "Tahoma"
+string text = "testforgit"
+end type
+
+type cb_cancel from commandbutton within w_login
+integer x = 1102
+integer y = 512
+integer width = 352
 integer height = 132
 integer taborder = 40
 integer textsize = -11
@@ -92,9 +113,9 @@ event clicked;HALT
 end event
 
 type cb_ok from commandbutton within w_login
-integer x = 300
+integer x = 302
 integer y = 512
-integer width = 350
+integer width = 352
 integer height = 132
 integer taborder = 30
 integer textsize = -11
@@ -137,8 +158,8 @@ end event
 type sle_pwd from singlelineedit within w_login
 integer x = 722
 integer y = 352
-integer width = 650
-integer height = 90
+integer width = 649
+integer height = 92
 integer taborder = 20
 integer textsize = -10
 integer weight = 400
@@ -154,8 +175,8 @@ end type
 type sle_user from singlelineedit within w_login
 integer x = 722
 integer y = 228
-integer width = 650
-integer height = 90
+integer width = 649
+integer height = 92
 integer taborder = 10
 integer textsize = -10
 integer weight = 400
