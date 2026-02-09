@@ -94,6 +94,9 @@ string facename = "Tahoma"
 string text = "testforgit"
 end type
 
+event clicked;open(w_emptywindow)
+end event
+
 type cb_cancel from commandbutton within w_login
 integer x = 1102
 integer y = 512
