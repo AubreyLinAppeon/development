@@ -1,0 +1,78 @@
+﻿$PBExportHeader$m_home.srm
+forward
+global type m_home from menu
+end type
+type m_releaserecords from menu within m_home
+end type
+global type m_home from menu
+m_releaserecords m_releaserecords
+end type
+end forward
+
+global type m_home from menu
+m_releaserecords m_releaserecords
+end type
+global m_home m_home
+
+on m_home.create
+m_home=this
+call super::create
+this.text = "m_home"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_releaserecords=create m_releaserecords
+this.Item[UpperBound(this.Item)+1]=this.m_releaserecords
+end on
+
+on m_home.destroy
+call super::destroy
+destroy(this.m_releaserecords)
+end on
+
+event clicked;open(w_history)
+
+end event
+
+type m_releaserecords from menu within m_home
+end type
+
+event clicked;open(w_history)
+end event
+
+on m_releaserecords.create
+call super::create
+this.text = " Release Records "
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_releaserecords.destroy
+call super::destroy
+end on
+
